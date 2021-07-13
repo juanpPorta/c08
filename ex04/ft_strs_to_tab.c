@@ -6,7 +6,7 @@
 /*   By: jporta <jporta@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/12 18:13:37 by jporta            #+#    #+#             */
-/*   Updated: 2021/07/12 20:10:53 by jporta           ###   ########.fr       */
+/*   Updated: 2021/07/13 12:40:56 by jporta           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@
 int	ft_len(char *p)
 {
 	int	i;
-	int a;
+	int	a;
 
 	i = 0;
 	while (p[i] != '\0')
@@ -34,7 +34,8 @@ char	*ft_dup(char *str)
 	char	*dest;
 
 	i = 0;
-	if (!(dest = malloc(ft_len(str) + 1)))
+	dest = malloc(ft_len(str) + 1);
+	if (!dest)
 		return (dest);
 	while (str[i])
 	{
@@ -50,29 +51,17 @@ struct s_stock_str	*ft_strs_to_tab(int ac, char **av)
 	t_stock_str	*list;
 	int			i;
 
-	if (!(list = malloc(sizeof(struct s_stock_str) * (ac + 1))))
+	list = (t_stock_str *)malloc(sizeof(t_stock_str) * (ac + 1));
+	if (!list)
 		return (0);
 	while (i < ac)
 	{
 		list[i].size = ft_len(av[i]);
 		list[i].str = av[i];
 		list[i].copy = ft_dup(av[i]);
-	}
-	list[i].str = "\0";
-	return (list);
-}
-
-int main()
-{
-	char *lol[3];
-	int i = 0;
-	lol[0] = "yes";
-	lol[1] = "yessaie";
-	lol[2] = "hon hon gaston";
-	t_stock_str *prout = ft_strs_to_tab(3, lol);
-	while (prout[i].str)
-	{
-		printf("%d, %s, %s\n", prout[i].size, prout[i].str, prout[i].copy);
 		i++;
 	}
+	list[i].str = 0;
+	return (list);
+	free(list);
 }
