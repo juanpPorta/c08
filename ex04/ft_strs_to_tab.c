@@ -6,7 +6,7 @@
 /*   By: jporta <jporta@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/12 18:13:37 by jporta            #+#    #+#             */
-/*   Updated: 2021/07/14 16:24:18 by jporta           ###   ########.fr       */
+/*   Updated: 2021/07/14 17:37:34 by jporta           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +20,7 @@ int	ft_len(char *p)
 	int	i;
 	int	a;
 
+	a = 0;
 	i = 0;
 	while (p[i] != '\0')
 	{
@@ -52,6 +53,7 @@ struct s_stock_str	*ft_strs_to_tab(int ac, char **av)
 	t_stock_str	*list;
 	int			i;
 
+	i = 0;
 	list = (t_stock_str *)malloc(sizeof(t_stock_str) * (ac + 1));
 	if (!list)
 		return (0);
