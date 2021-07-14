@@ -6,7 +6,7 @@
 /*   By: jporta <jporta@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/12 18:13:37 by jporta            #+#    #+#             */
-/*   Updated: 2021/07/13 12:40:56 by jporta           ###   ########.fr       */
+/*   Updated: 2021/07/14 16:24:18 by jporta           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,7 @@
 #include<unistd.h>
 #include <stdlib.h>
 #include "ft_stock_str.h"
+
 int	ft_len(char *p)
 {
 	int	i;
